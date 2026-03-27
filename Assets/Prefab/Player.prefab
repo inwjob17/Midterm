@@ -66,7 +66,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5252476782067480289}
   - component: {fileID: 3323515702724814977}
-  - component: {fileID: 3354682424644004778}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -117,20 +116,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &3354682424644004778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1407914212531339671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cac09f32c450c5489c16fdffee8c186, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TofuController
-  moveSpeed: 12
-  jumpForce: 8
 --- !u!1 &1921031070409431045
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +128,9 @@ GameObject:
   - component: {fileID: 1189902270290439658}
   - component: {fileID: 3697324998282703432}
   - component: {fileID: 3335304922613080825}
-  - component: {fileID: 2011843572949485120}
+  - component: {fileID: 2431209513454165625}
+  - component: {fileID: 6601018600513336959}
+  - component: {fileID: 8104756462012800201}
   m_Layer: 0
   m_Name: PlayerModel
   m_TagString: Untagged
@@ -245,7 +232,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2011843572949485120
+--- !u!114 &2431209513454165625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,15 +241,57 @@ MonoBehaviour:
   m_GameObject: {fileID: 1921031070409431045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77772445b1e18c74aba4b3b26ef7598f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5438353b388ec7c48af0761babb08e46, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TofuSimpleWalk
-  moveSpeed: 7
-  rotationSpeed: 720
-  bounceFrequency: 15
-  bounceAmplitude: 0.15
-  modelTransform: {fileID: 5252476782067480289}
-  cameraTransform: {fileID: 9088187005941112409}
+  m_EditorClassIdentifier: Assembly-CSharp::TofuBounce
+  idleSpeed: 2
+  idleAmount: 0.05
+  walkSpeed: 15
+  walkAmount: 0.15
+--- !u!54 &6601018600513336959
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921031070409431045}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8104756462012800201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921031070409431045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069b3f85ff472f34fb3671af665b4338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TofuSimpleMove
+  moveSpeed: 10
+  rotationSpeed: 10
+  jumpForce: 12
+  bounceSpeed: 10
+  bounceAmount: 0.15
 --- !u!1 &2951009849024808579
 GameObject:
   m_ObjectHideFlags: 0

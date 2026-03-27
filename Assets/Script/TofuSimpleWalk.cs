@@ -5,11 +5,11 @@ public class TofuSimpleWalk : MonoBehaviour
     public float moveSpeed = 7f;
     public float rotationSpeed = 720f;
 
-    [Header("ค่าการเด้ง (ปรับได้ตามชอบ)")]
+    [Header("ค่าการเด้ง")]
     public float bounceFrequency = 15f; 
     public float bounceAmplitude = 0.15f; 
 
-    [Header("ลาก Model ลูกมาใส่ที่นี่นะคะ")]
+    [Header("ลาก Model ลูกมาใส่")]
     public Transform modelTransform;
     public Transform cameraTransform;
 
