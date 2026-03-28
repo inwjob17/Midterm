@@ -3,8 +3,8 @@ using UnityEngine;
 public class GentlePlatform1 : MonoBehaviour
 {
     [Header("Platform Settings")]
-    public float movementDistance = 3.0f; // ๏ฟฝ๏ฟฝ๏ฟฝะทาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ-๏ฟฝ๏ฟฝับ
-    public float speed = 1.0f;           // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ่งน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ่งช๏ฟฝ๏ฟฝ
+    public float movementDistance = 3.0f; // ระยะทางที่เคลื่อนที่ไป-กลับ
+    public float speed = 1.0f;           // ความเร็ว ยิ่งน้อยยิ่งช้า
 
     [Header("Optional: Rotation")]
     public float rotationSpeed = 0f;    
@@ -21,16 +21,16 @@ public class GentlePlatform1 : MonoBehaviour
 
     void Update()
     {
-        // ๏ฟฝูณ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝะทาง๏ฟฝ๏ฟฝะค๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+        // คูณด้วยระยะทางและความเร็ว
         float offset = Mathf.Sin((Time.time * speed) - 1.57f) * movementDistance;
 
-        // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝัก๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝำคัญ
+        // อะไรสสักอย่างควายๆที่่สำคัญ
         transform.position = _startPosition + new Vector3(offset, 0, 0);
 
 
         if (rotationSpeed != 0)
         {
-            // ๏ฟฝำนวณ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝในก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาท๏ฟฝศทาง
+            // คำนวณความเร็วในการเคลื่อนที่ เพื่อหาทิศทาง
             float velocity = Mathf.Cos(Time.time * speed) * speed * movementDistance;
 
           
@@ -39,12 +39,12 @@ public class GentlePlatform1 : MonoBehaviour
         }
     }
 
-    // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝะครติดไปกับ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝยบ
+    // ตัวละครติดไปกับไม้เวลาเหยียบ
 
    
     private void OnCollisionEnter(Collision collision)
     {
-        // ๏ฟฝ๏ฟฝวจ๏ฟฝอบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ็นผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+        // ตรวจสอบว่าเป็นผู้เล่น
         if (collision.gameObject.CompareTag("Player"))
         {
             
@@ -55,7 +55,7 @@ public class GentlePlatform1 : MonoBehaviour
     // Exit Collision
     private void OnCollisionExit(Collision collision)
     {
-        // ๏ฟฝ๏ฟฝวจ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ็นผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+        // ตรวจว่าเป็นผู้เล่น
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.transform.SetParent(null);
