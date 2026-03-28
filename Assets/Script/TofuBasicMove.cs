@@ -8,6 +8,7 @@ public class TofuBasicMove : MonoBehaviour
     public float rotationSpeed = 150f;
     public float jumpForce = 8f;
 
+
     private Rigidbody rb;
     private bool isGrounded;
 

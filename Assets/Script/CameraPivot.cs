@@ -50,7 +50,7 @@ public class CameraPivot : MonoBehaviour
         _pitch -= mouseY;
         _pitch = Mathf.Clamp(_pitch, verticalClampMin, verticalClampMax);
 
-        transform.rotation = Quaternion.Euler(_pitch, _yaw, 0f);
+        transform.rotation = Quaternion.Euler((int)_pitch, (int)_yaw, (int)0f);
     }
 
     void HandleZoom()
