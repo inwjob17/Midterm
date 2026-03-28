@@ -8,7 +8,6 @@ public class TofuBasicMove : MonoBehaviour
     public float rotationSpeed = 150f;
     public float jumpForce = 8f;
 
-    public Animator animator;
 
     private Rigidbody rb;
     private bool isGrounded;
@@ -52,21 +51,11 @@ public class TofuBasicMove : MonoBehaviour
     private void OnCollisionStay(Collision collision)
     {
         isGrounded = true;
-        if (collision.collider.CompareTag("UnAnimation"))
-        {
-            animator.enabled = false;
-        }
-        else
-        {
-            animator.enabled = true;
-
-        }
     }
 
     private void OnCollisionExit(Collision collision)
     {
         isGrounded = false;
-        animator.enabled = false;
     }
 }
 
